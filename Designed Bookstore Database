@@ -1,0 +1,14 @@
+CREATE Table bookstore (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, sold INTEGER);
+INSERT INTO bookstore VALUES (21, "The Notebook", 200, 10, 5);
+INSERT INTO bookstore VALUES (22, "The Untethered Soul", 150, 15, 2);
+INSERT INTO bookstore VALUES (23, "Becoming Supernatural", 200, 15, 3);
+INSERT INTO bookstore VALUES (24, "The Lover Man", 50, 10, 2);
+INSERT INTO bookstore VALUES (25, "Root Magic", 75, 20, 1);
+INSERT INTO bookstore VALUES (26, "The Four Agreements", 100, 15, 1);
+INSERT INTO bookstore VALUES (27, "The Coldest Winter Ever", 250, 10, 1);
+
+SELECT * FROM bookstore;
+
+SELECT name, SUM(Price) FROM bookstore GROUP BY id;
+
+SELECT quantity, SUM(Price) FROM bookstore GROUP BY sold;
