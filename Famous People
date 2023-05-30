@@ -1,0 +1,44 @@
+CREATE TABLE FamousPeople (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    Movie TEXT,
+    Songs TEXT,
+    Books TEXT,
+    "Top Book Rating" INTEGER,
+    "Song Release Year" INTEGER,
+    "One Movie Rating" INTEGER);
+    
+INSERT INTO FamousPeople (fullname, Movie, Songs, Books, "Top Book Rating", "Song Release Year", "One Movie Rating")
+    VALUES ("Mariah Carey", "Glitter", "We Belong Together", "The Meaning of Mariah Carey", 4.8, 2005, 2.4); 
+INSERT INTO FamousPeople (fullname, Movie, Songs, Books, "Top Book Rating", "Song Release Year", "One Movie Rating")
+    VALUES ("Will Smith", "Bad Boys", "Summer Time", "Will", 4.9, 1991, 4.3);
+    
+CREATE TABLE Marriages (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    "Spouses Name" TEXT,
+    Years INTEGER,
+    Divorced TEXT);
+
+INSERT INTO Marriages ("Spouses Name", Years, Divorced)
+    VALUES ("Sheree Zampino", 3, "Yes");
+INSERT INTO Marriages ("Spouses Name", Years, Divorced)
+    VALUES ("Jada Pinkett", 26, "No");
+INSERT INTO Marriages ("Spouses Name", Years, Divorced)
+    VALUES ("Tommy Mottola", 5, "Yes");
+INSERT INTO Marriages ("Spouses Name", Years, Divorced)
+    VALUES ("Nick Cannon", 8, "Yes");
+
+SELECT * FROM FamousPeople;
+SELECT * FROM Marriages;
+
+CREATE TABLE Rating_Pairs (id INTEGER PRIMARY KEY,
+    Rating1_id INTEGER,
+    Rating2_id INTEGER);
+    
+INSERT INTO Rating_Pairs (Rating1_id, Rating2_id)
+    VALUES (4.8, 2.4);
+INSERT INTO Rating_Pairs (Rating1_id, Rating2_id)
+    VALUES (4.9, 4.3);
+
+SELECT FamousPeople.fullname, Rating_Pairs.Rating1_id, Rating_Pairs.Rating2_id
+FROM Rating_Pairs
+JOIN FamousPeople  
+ON FamousPeople.Fullname=Rating_pairs.Rating1_id;
